@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.iwuyc.tpg4j</groupId>
+    <artifactId>spring-tpg4j</artifactId>
+    <version>0.0.1</version>
+    <modules>
+        <module>spring-tpg4j-core</module>
+    </modules>
+    <properties>
+        <tpg4j.version>0.0.1</tpg4j.version>
+        <spring-context.version>4.0.0.RELEASE</spring-context.version>
+    </properties>
+    <packaging>pom</packaging>
+    <url>https://github.com/iWuYc/spring-tpg4j</url>
+    <name>spring-tgp4j</name>
+
+    <description>
+        Thread Pool Governance for Java.It can dynamic allocation reload thread pools size and queue size by yaml
+        configuration.
+        This project is built for faster use of the TPG4J framework.
+    </description>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.iwuyc.tpg4j</groupId>
+                <artifactId>tpg4j</artifactId>
+                <version>${tpg4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring-context.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
