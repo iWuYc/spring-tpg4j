@@ -9,6 +9,7 @@
     <version>0.0.1</version>
     <modules>
         <module>spring-tpg4j-core</module>
+        <module>spring-tpg4j-demo</module>
     </modules>
     <properties>
         <tpg4j.version>0.0.1</tpg4j.version>
@@ -35,6 +36,7 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring-context.version}</version>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
