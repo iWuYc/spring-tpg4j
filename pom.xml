@@ -25,6 +25,8 @@
 
         <guava.version>26.0-jre</guava.version>
         <slf4j-api.version>1.8.0-alpha2</slf4j-api.version>
+
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     </properties>
     <packaging>pom</packaging>
     <url>https://github.com/iWuYc/spring-tpg4j</url>

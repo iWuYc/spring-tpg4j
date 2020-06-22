@@ -2,8 +2,8 @@ package com.iwuyc.tpg4j.spring.core.config;
 
 import com.iwuyc.tools.commons.util.collection.MapUtil;
 import com.iwuyc.tools.commons.util.file.FileUtil;
-import com.iwuyc.tpg4j.ThreadPoolService;
-import com.iwuyc.tpg4j.conf.Config;
+import com.iwuyc.tpg4j.Tpg4jConfig;
+import com.iwuyc.tpg4j.interfaces.Tpg4jService;
 import com.iwuyc.tpg4j.spring.core.dto.Tpg4jAnnotationInfo;
 import com.iwuyc.tpg4j.spring.core.exception.Tpg4jDependenciesException;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 @Slf4j
-public class Tpg4jConfig implements BeanDefinitionRegistryPostProcessor {
+public class Tpg4jConfigPostProcessor implements BeanDefinitionRegistryPostProcessor {
 
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
@@ -39,7 +39,7 @@ public class Tpg4jConfig implements BeanDefinitionRegistryPostProcessor {
             }
             String configPath = tpg4jAnnotationInfo.getConfigPath();
             final String absoluteLocation = FileUtil.absoluteLocation(configPath);
-            final ThreadPoolService threadPoolService = Config.config(absoluteLocation);
+            final Tpg4jService threadPoolService = Tpg4jConfig.config(absoluteLocation);
             beanFactory.registerSingleton("tpg4jService", threadPoolService);
         } catch (TimeoutException | ExecutionException | InterruptedException e) {
             e.printStackTrace();

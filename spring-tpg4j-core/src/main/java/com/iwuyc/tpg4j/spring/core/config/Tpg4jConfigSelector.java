@@ -23,6 +23,6 @@ public class Tpg4jConfigSelector implements ImportSelector {
         } catch (ClassNotFoundException ignored) {
 
         }
-        return new String[]{Tpg4jConfig.class.getName()};
+        return new String[]{Tpg4jConfigPostProcessor.class.getName()};
     }
 }

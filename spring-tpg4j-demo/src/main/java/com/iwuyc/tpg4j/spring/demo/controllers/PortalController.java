@@ -1,6 +1,6 @@
 package com.iwuyc.tpg4j.spring.demo.controllers;
 
-import com.iwuyc.tpg4j.ThreadPoolServiceHolder;
+import com.iwuyc.tpg4j.Tpg4jFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,8 +12,9 @@ import java.util.concurrent.TimeUnit;
 @RestController()
 @RequestMapping("/portal")
 public class PortalController {
-    final ExecutorService executorService = ThreadPoolServiceHolder.get(PortalController.class);
-    final ScheduledExecutorService scheduleService = ThreadPoolServiceHolder.getScheduleService(PortalController.class);
+
+    final ExecutorService executorService = Tpg4jFactory.get(PortalController.class);
+    final ScheduledExecutorService scheduleService = Tpg4jFactory.getScheduleService(PortalController.class);
 
     @GetMapping
     public String get() {
