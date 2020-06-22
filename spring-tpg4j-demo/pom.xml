@@ -10,6 +10,35 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-tpg4j-demo</artifactId>
+    <properties>
+        <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+    </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.iwuyc.tpg4j</groupId>
+            <artifactId>spring-tpg4j-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.2.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+    </dependencies>
 </project>

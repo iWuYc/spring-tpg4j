@@ -12,8 +12,19 @@
         <module>spring-tpg4j-demo</module>
     </modules>
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <tpg4j.version>0.0.1</tpg4j.version>
         <spring-context.version>4.0.0.RELEASE</spring-context.version>
+        <lombok.version>1.18.10</lombok.version>
+
+        <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
+
+        <guava.version>26.0-jre</guava.version>
+        <slf4j-api.version>1.8.0-alpha2</slf4j-api.version>
     </properties>
     <packaging>pom</packaging>
     <url>https://github.com/iWuYc/spring-tpg4j</url>
@@ -38,6 +49,48 @@
                 <version>${spring-context.version}</version>
                 <scope>provided</scope>
             </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+    <build>
+        <plugins>
+            <!-- Javadoc插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <!-- -Xdoclint:none 是为了避免生成apidoc的时候检查过于严格而报错-->
+                        <configuration>
+                            <additionalOptions>-Xdoclint:none</additionalOptions>
+                            <charset>UTF-8</charset>
+                            <docencoding>UTF-8</docencoding>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
