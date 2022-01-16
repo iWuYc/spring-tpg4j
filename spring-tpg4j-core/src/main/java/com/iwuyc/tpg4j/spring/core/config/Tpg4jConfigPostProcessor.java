@@ -1,9 +1,10 @@
 package com.iwuyc.tpg4j.spring.core.config;
 
+import com.iwuyc.tools.commons.annotaion.AliasName;
 import com.iwuyc.tools.commons.util.collection.MapUtil;
 import com.iwuyc.tools.commons.util.file.FileUtil;
-import com.iwuyc.tpg4j.Tpg4jConfig;
-import com.iwuyc.tpg4j.interfaces.Tpg4jService;
+import com.iwuyc.tpg4j.core.Tpg4jConfig;
+import com.iwuyc.tpg4j.core.spi.Tpg4jService;
 import com.iwuyc.tpg4j.spring.core.dto.Tpg4jAnnotationInfo;
 import com.iwuyc.tpg4j.spring.core.exception.Tpg4jDependenciesException;
 import lombok.extern.slf4j.Slf4j;
@@ -40,6 +41,11 @@ public class Tpg4jConfigPostProcessor implements BeanDefinitionRegistryPostProce
             String configPath = tpg4jAnnotationInfo.getConfigPath();
             final String absoluteLocation = FileUtil.absoluteLocation(configPath);
             final Tpg4jService threadPoolService = Tpg4jConfig.config(absoluteLocation);
+            final Class<? extends Tpg4jService> tpg4jServiceClazz = threadPoolService.getClass();
+            final AliasName aliasName = tpg4jServiceClazz.getAnnotation(AliasName.class);
+            if (null != aliasName) {
+                beanFactory.registerSingleton(aliasName.value(), threadPoolService);
+            }
             beanFactory.registerSingleton("tpg4jService", threadPoolService);
         } catch (TimeoutException | ExecutionException | InterruptedException e) {
             e.printStackTrace();

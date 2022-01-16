@@ -1,7 +1,7 @@
 package com.iwuyc.tpg4j.spring.core.exception;
 
 
-import com.iwuyc.tpg4j.exception.Tpg4jException;
+import com.iwuyc.tpg4j.core.exception.Tpg4jException;
 
 /**
  * tpg4j 的依赖项错误，缺少必要的依赖

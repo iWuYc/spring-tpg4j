@@ -15,7 +15,7 @@ tpg4j:
   conf:
     default:
       corePoolSize: 8
-      factory: com.iwuyc.tpg4j.impl.DefaultExecutorServiceFactory
+      factory: iFactory
       # [h - hour;m - minute;s - second;ms - millisecond;ns - nanosecond;]default:s
       keepAliveTime: 60m
       maximumPoolSize: cores*2
@@ -23,18 +23,18 @@ tpg4j:
       daemon: false
     service:
       corePoolSize: cores
-      factory: com.iwuyc.tpg4j.impl.DefaultExecutorServiceFactory
+      factory: iFactory
       # [h - hour;m - minute;s - second;ms - millisecond;ns - nanosecond;]default:s
       keepAliveTime: 60m
       maximumPoolSize: cores*2
       maxQueueSize: 1800
       daemon: true
   using:
-    root: default
+    root: ${default}
     com:
-      - default1
+      - ${default1}
       - iwuyc:
-          - service
+          - ${service}
           - tools:
-              - service
-              - commons: service11
+              - ${service}
+              - commons: ${service11}

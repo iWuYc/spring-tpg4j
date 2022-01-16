@@ -17,7 +17,7 @@
         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <tpg4j.version>0.0.1</tpg4j.version>
+        <tpg4j.version>2021.4</tpg4j.version>
         <spring-context.version>4.0.0.RELEASE</spring-context.version>
         <lombok.version>1.18.10</lombok.version>
 
@@ -42,7 +42,7 @@
         <dependencies>
             <dependency>
                 <groupId>com.iwuyc.tpg4j</groupId>
-                <artifactId>tpg4j</artifactId>
+                <artifactId>tpg4j-core</artifactId>
                 <version>${tpg4j.version}</version>
             </dependency>
             <dependency>

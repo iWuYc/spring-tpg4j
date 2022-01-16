@@ -113,7 +113,7 @@
         </encoder>
     </appender>
 
-    <root level="warn">
+    <root level="debug">
         <appender-ref ref="file"/>
         <appender-ref ref="errfile"/>
         <appender-ref ref="console"/>

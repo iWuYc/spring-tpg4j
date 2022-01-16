@@ -27,7 +27,7 @@
     <dependencies>
         <dependency>
             <groupId>com.iwuyc.tpg4j</groupId>
-            <artifactId>tpg4j</artifactId>
+            <artifactId>tpg4j-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
